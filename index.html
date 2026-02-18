@@ -205,16 +205,24 @@
     <h2 class="section-title">Inicie su proyecto hoy</h2>
     <div class="contact-card">
       <form action="https://formsubmit.co/contacto.sanvicente.cl@gmail.com" method="POST">
+        <!-- Ajustes mínimos recomendados para FormSubmit -->
+        <input type="hidden" name="_subject" value="Nueva solicitud - Constructora San Vicente">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_template" value="table">
+
         <div class="form-grid">
           <input type="text" name="Nombre" placeholder="Nombre completo" required>
           <input type="email" name="Email" placeholder="Correo electrónico" required>
         </div>
+
         <select name="Tipo de Proyecto" style="margin-bottom: 20px;">
-          <option>Construcción Casa Nueva</option>
-          <option>Remodelación / Ampliación</option>
-          <option>Asesoría Técnica</option>
+          <option value="Construcción Casa Nueva">Construcción Casa Nueva</option>
+          <option value="Remodelación / Ampliación">Remodelación / Ampliación</option>
+          <option value="Asesoría Técnica">Asesoría Técnica</option>
         </select>
-        <textarea name="Mensaje" rows="5" placeholder="Cuéntenos sobre su terreno o idea de proyecto..." style="margin-bottom: 25px;"></textarea>
+
+        <textarea name="Mensaje" rows="5" placeholder="Cuéntenos sobre su terreno o idea de proyecto..." style="margin-bottom: 25px;" required></textarea>
+
         <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Solicitar Presupuesto</button>
       </form>
     </div>
@@ -225,7 +233,10 @@
   <p>© 2026 CONSTRUCTORA SAN VICENTE · RM, V y VI Región · Chile</p>
 </footer>
 
-<a href="https://wa.me/56977377936?text=Hola,%20necesito%20cotizar%20un%20proyecto%20de%20construcción." class="whatsapp-btn" target="_blank">
+<a href="https://wa.me/56977377936?text=Hola%2C%20necesito%20cotizar%20un%20proyecto%20de%20construcci%C3%B3n."
+   class="whatsapp-btn"
+   target="_blank"
+   rel="noopener">
   <span>WhatsApp Consultas</span>
 </a>
 
