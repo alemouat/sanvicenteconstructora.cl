@@ -58,19 +58,15 @@
       display:flex;
       align-items:center;
       gap:12px;
-      min-width: 220px;
+      min-width: 180px;
     }
+    /* LOGO MÁS GRANDE + CONTROLADO */
     .brand img{
-      height:34px;
+      height:56px;          /* más grande que antes */
       width:auto;
       object-fit:contain;
     }
-    .brand strong{
-      font-size:14px;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      white-space:nowrap;
-    }
+
     .nav{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
     .nav a{
       font-size:13px;
@@ -426,6 +422,9 @@
       .contact-wrap{ grid-template-columns: 1fr; }
       .row-2{ grid-template-columns: 1fr; }
       .hero h1{ font-size:34px; }
+
+      /* LOGO EN MÓVIL (para que no quede gigante) */
+      .brand img{ height:46px; }
     }
   </style>
 </head>
@@ -436,7 +435,6 @@
   <div class="header-inner">
     <div class="brand">
       <img src="logo-san-vicente.png" alt="Logo Constructora San Vicente">
-      <strong>Constructora San Vicente</strong>
     </div>
     <nav class="nav">
       <a href="#nosotros">Nosotros</a>
@@ -550,7 +548,7 @@
 
     <div class="service">
       <div class="img-wrap">
-        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1800&q=70" alt="Escritorio con planos y documentación técnica" loading="lazy">
+        <img src="boceto1.png" alt="Ingeniería y cubicaciones" loading="lazy">
       </div>
       <div class="content">
         <strong>Ingeniería y cubicaciones</strong>
