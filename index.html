@@ -3,241 +3,754 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Constructora San Vicente | Viviendas y Remodelaciones de Alto Estándar</title>
-  
-  <meta name="description" content="Constructora San Vicente: Viviendas llave en mano y remodelaciones de alto estándar en RM, V y VI Región. Planificación técnica y cumplimiento de plazos.">
-  
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <title>Constructora San Vicente | Viviendas Llave en Mano y Remodelaciones</title>
+  <meta name="description" content="Viviendas llave en mano, ampliaciones y remodelaciones de alto estándar en RM, V y VI Región. Planificación técnica, control de costos y cumplimiento real de plazos.">
+  <meta name="theme-color" content="#0B0B0B" />
+  <meta name="author" content="Constructora San Vicente" />
 
   <style>
-    :root {
-      --primary: #121212;
-      --accent: #a6714c; 
-      --accent-hover: #8b5a3a;
-      --bg: #ffffff;
-      --gray-light: #f9f9f9;
-      --text: #333333;
-      --max-width: 1200px;
+    :root{
+      --bg:#ffffff;
+      --text:#0b0b0b;
+      --muted:#666;
+      --line:#e9e9e9;
+      --soft:#f6f6f6;
+      --card:#ffffff;
+      --shadow: 0 14px 40px rgba(0,0,0,.10);
+      --radius: 18px;
+      --max: 1120px;
+      --btn:#0b0b0b;
+      --btn2:#ffffff;
+      --btnLine:#111;
+      --ok:#25D366;
     }
 
-    * { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{ text-decoration:none; color:inherit; }
+    img{ display:block; max-width:100%; }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      line-height: 1.6;
-      background-color: var(--bg);
-      -webkit-font-smoothing: antialiased;
+    /* HEADER */
+    .header{
+      position:sticky;
+      top:0;
+      background:#fff;
+      border-bottom:1px solid var(--line);
+      z-index:50;
+    }
+    .header-inner{
+      max-width:var(--max);
+      margin:auto;
+      padding:16px 18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+    }
+    .brand strong{
+      font-size:14px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+    .nav{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+    .nav a{
+      font-size:13px;
+      color:#111;
+      opacity:.9;
+    }
+    .nav a:hover{ opacity:1; }
+
+    /* BUTTONS */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 18px;
+      border-radius:999px;
+      font-size:12px;
+      letter-spacing:.8px;
+      border:1px solid transparent;
+      cursor:pointer;
+      user-select:none;
+      transition: transform .15s ease, opacity .15s ease, background .15s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn-primary{
+      background:var(--btn);
+      color:#fff;
+      border-color:var(--btn);
+    }
+    .btn-secondary{
+      background:var(--btn2);
+      color:var(--btnLine);
+      border-color:var(--line);
     }
 
-    .container { max-width: var(--max-width); margin: auto; padding: 0 25px; }
-
-    /* --- HEADER --- */
-    header {
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,0.98);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
+    /* HERO */
+    .hero{
+      max-width:var(--max);
+      margin:auto;
+      padding:74px 18px 34px;
+      display:grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap:34px;
+      align-items:center;
+    }
+    .hero h1{
+      font-size:44px;
+      font-weight:300;
+      line-height:1.15;
+      letter-spacing:-.2px;
+    }
+    .hero p{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:16px;
+      max-width:70ch;
+    }
+    .hero-actions{
+      margin-top:22px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .hero-badges{
+      margin-top:16px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-size:12px;
+      color:#222;
+      opacity:.95;
+    }
+    .hero-visual{
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      min-height:440px;
+      background:
+        linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.18)),
+        url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=70")
+        center/cover no-repeat;
+      position:relative;
+    }
+    .hero-visual .tag{
+      position:absolute;
+      left:16px;
+      bottom:16px;
+      background: rgba(255,255,255,.92);
+      border:1px solid rgba(255,255,255,.75);
+      padding:10px 12px;
+      border-radius:14px;
+      font-size:12px;
+      color:#111;
+      max-width: 80%;
+      line-height:1.25;
+      box-shadow: 0 12px 24px rgba(0,0,0,.12);
     }
 
-    .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
-    
-    /* LOGO AGRANDADO */
-    .logo-container img {
-      height: 95px; /* Mantiene el tamaño grande solicitado */
-      width: auto;
-      display: block;
-      transition: 0.3s;
+    /* TRUST BAR */
+    .trust{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 18px 50px;
+    }
+    .trust-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:14px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:#fff;
+      padding:18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+    }
+    .stat{
+      padding:10px 10px;
+      border-right:1px solid var(--line);
+    }
+    .stat:last-child{ border-right:none; }
+    .stat strong{
+      display:block;
+      font-size:16px;
+      letter-spacing:.2px;
+      margin-bottom:6px;
+    }
+    .stat span{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.35;
     }
 
-    .nav a { 
-      margin-left: 30px; 
-      text-decoration: none; 
-      color: var(--primary); 
-      font-size: 13px; 
-      text-transform: uppercase; 
-      letter-spacing: 1px; 
-      font-weight: 600; 
+    /* SECTIONS */
+    .section{
+      max-width:var(--max);
+      margin:auto;
+      padding:76px 18px;
+    }
+    .section h2{
+      font-size:30px;
+      font-weight:400;
+      margin-bottom:14px;
+      letter-spacing:-.2px;
+    }
+    .lead{
+      color:var(--muted);
+      max-width: 80ch;
+      margin-bottom:26px;
+      font-size:15px;
     }
 
-    .nav a:hover { color: var(--accent); }
-
-    /* --- HERO: IMAGEN PRINCIPAL ACTUALIZADA --- */
-    .hero { 
-      height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      /* Se usa la imagen 'principal1' del root */
-      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
-                  url('principal1.png'); 
-      background-size: cover;
-      background-position: center;
-      color: white;
+    /* GRID: PROCESS */
+    .process-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:16px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.06);
+    }
+    .step-num{
+      width:34px;
+      height:34px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:12px;
+      color:#111;
+      margin-bottom:12px;
+    }
+    .card h3{
+      font-size:15px;
+      margin-bottom:8px;
+      font-weight:700;
+    }
+    .card p{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
     }
 
-    .hero-content { max-width: 900px; padding: 0 20px; }
-    
-    .hero h1 { 
-      font-family: 'Playfair Display', serif; 
-      font-size: clamp(2.2rem, 5vw, 3.8rem); 
-      line-height: 1.2;
-      margin-bottom: 20px;
-      font-weight: 700;
-      text-shadow: 0 2px 15px rgba(0,0,0,0.4);
+    /* SERVICES */
+    .services{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:20px;
+    }
+    .service{
+      border-radius:var(--radius);
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow: 0 10px 28px rgba(0,0,0,.06);
+    }
+    .service .img-wrap{
+      position:relative;
+      overflow:hidden;
+      height:240px;
+    }
+    .service img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform:scale(1);
+      transition: transform .6s ease;
+    }
+    .service:hover img{ transform: scale(1.06); }
+    .service .content{
+      padding:18px 18px 20px;
+    }
+    .service .content strong{
+      display:block;
+      font-size:15px;
+      margin-bottom:8px;
+      letter-spacing:.2px;
+    }
+    .service .content p{
+      color:var(--muted);
+      font-size:13px;
+    }
+    .service .mini-cta{
+      margin-top:12px;
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      font-size:12px;
+      color:#111;
+      opacity:.9;
+    }
+    .service .mini-cta:hover{ opacity:1; }
+
+    /* PROJECTS */
+    .projects-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+    }
+    .project{
+      border-radius:var(--radius);
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow: 0 10px 28px rgba(0,0,0,.06);
+    }
+    .project .ph{
+      height:220px;
+      background:#ddd;
+      background-size:cover;
+      background-position:center;
+    }
+    .project .meta{
+      padding:14px 16px 16px;
+    }
+    .project .meta strong{
+      display:block;
+      font-size:13px;
+      margin-bottom:6px;
+    }
+    .project .meta span{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.35;
     }
 
-    .hero p {
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
-      font-weight: 400;
-      letter-spacing: 0.5px;
-      margin-bottom: 35px;
-      color: rgba(255,255,255,0.95);
+    /* CONTACT */
+    .contact-wrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      align-items:start;
+    }
+    form{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.06);
+    }
+    label{
+      display:block;
+      font-size:12px;
+      margin:10px 0 6px;
+      color:#111;
+      opacity:.9;
+    }
+    input, textarea, select{
+      width:100%;
+      padding:12px;
+      border:1px solid #d6d6d6;
+      border-radius:12px;
+      font-size:14px;
+      outline:none;
+      background:#fff;
+    }
+    input:focus, textarea:focus, select:focus{
+      border-color:#b7b7b7;
+    }
+    .row-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    .helper{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:10px;
+      line-height:1.4;
+    }
+    .contact-card{
+      background:var(--soft);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+    }
+    .contact-card h3{
+      font-size:16px;
+      margin-bottom:10px;
+    }
+    .contact-card p{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+      margin-bottom:14px;
+    }
+    .contact-card .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--line);
+      font-size:12px;
+      margin:6px 6px 0 0;
     }
 
-    .btn-primary { 
-      background: var(--accent); 
-      color: #fff; 
-      padding: 20px 45px; 
-      text-decoration: none;
-      font-weight: 700; 
-      text-transform: uppercase; 
-      letter-spacing: 2px; 
-      font-size: 13px;
-      transition: all 0.3s ease;
-      display: inline-block;
-      border-radius: 4px;
+    /* FOOTER */
+    footer{
+      border-top:1px solid var(--line);
+      padding:28px 18px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
     }
 
-    .btn-primary:hover { 
-      background: var(--accent-hover); 
-      transform: translateY(-3px);
+    /* WHATSAPP */
+    .whatsapp{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      background:var(--ok);
+      color:#fff;
+      padding:14px 18px;
+      border-radius:999px;
+      font-weight:700;
+      box-shadow: 0 10px 24px rgba(0,0,0,.18);
+      z-index:99;
     }
 
-    /* --- SERVICIOS --- */
-    .section-padding { padding: 100px 0; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; text-align: center; margin-bottom: 60px; }
-    
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-    .service-card { background: #fff; border: 1px solid #eee; transition: 0.3s; }
-    .service-card img { width: 100%; height: 280px; object-fit: cover; }
-    .service-info { padding: 30px; }
-    .service-info h3 { font-family: 'Playfair Display', serif; margin-bottom: 15px; font-size: 1.4rem; }
-
-    /* --- CONTACTO --- */
-    .contact-section { background-color: var(--gray-light); padding: 100px 0; }
-    .contact-card { max-width: 800px; margin: auto; background: #fff; padding: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-    input, select, textarea { width: 100%; padding: 15px; border: 1px solid #ddd; font-family: 'Inter', sans-serif; font-size: 16px; border-radius: 4px; }
-
-    /* --- WHATSAPP --- */
-    .whatsapp-btn { 
-      position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff; 
-      padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; 
-      z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 10px;
-    }
-
-    footer { text-align:center; padding: 60px 0; background: var(--primary); color: #888; font-size: 12px; }
-
-    @media (max-width: 768px) {
-      .nav { display: none; }
-      .logo-container img { height: 75px; } /* Ajuste móvil */
-      .hero h1 { font-size: 2.2rem; }
+    /* RESPONSIVE */
+    @media(max-width:1000px){
+      .hero{ grid-template-columns: 1fr; padding-top:56px; }
+      .hero-visual{ min-height:340px; }
+      .trust-grid{ grid-template-columns: 1fr 1fr; }
+      .stat{ border-right:none; border-bottom:1px solid var(--line); }
+      .stat:nth-last-child(-n+2){ border-bottom:none; }
+      .process-grid{ grid-template-columns: 1fr 1fr; }
+      .projects-grid{ grid-template-columns: 1fr; }
+      .services{ grid-template-columns: 1fr; }
+      .contact-wrap{ grid-template-columns: 1fr; }
+      .row-2{ grid-template-columns: 1fr; }
+      .hero h1{ font-size:34px; }
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <div class="container nav-wrapper">
-    <a href="#" class="logo-container">
-      <img src="logo-san-vicente.png" alt="Constructora San Vicente">
-    </a>
+<header class="header">
+  <div class="header-inner">
+    <div class="brand">
+      <strong>Constructora San Vicente</strong>
+    </div>
     <nav class="nav">
+      <a href="#nosotros">Nosotros</a>
       <a href="#servicios">Servicios</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#proyectos">Proyectos</a>
       <a href="#contacto">Contacto</a>
     </nav>
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-content">
+<!-- HERO (vende en 5 segundos) -->
+<section class="hero" id="home">
+  <div>
     <h1>Viviendas llave en mano y remodelaciones de alto estándar</h1>
-    <p>Planificación técnica, control de costos y cumplimiento real de plazos.</p>
-    <a href="#contacto" class="btn-primary">Cotizar mi Proyecto</a>
-  </div>
-</section>
+    <p>
+      Ejecutamos proyectos en <strong>Región Metropolitana, V y VI Región</strong> con planificación técnica,
+      control de costos y seguimiento permanente en obra para cumplir plazos sin improvisaciones.
+    </p>
 
-<section id="servicios" class="container section-padding">
-  <h2 class="section-title">Nuestra Especialidad</h2>
-  <div class="services-grid">
-    <div class="service-card">
-      <img src="principal_retoque.png" alt="Construcción de Viviendas San Vicente">
-      <div class="service-info">
-        <h3>Construcción de Viviendas</h3>
-        <p>Especialistas en estructuras modernas y funcionales, desde el diseño arquitectónico hasta la entrega de llaves.</p>
-      </div>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#contacto">Solicitar evaluación</a>
+      <a class="btn btn-secondary" href="#proyectos">Ver proyectos</a>
     </div>
-    <div class="service-card">
-      <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80" alt="Remodelación Premium">
-      <div class="service-info">
-        <h3>Remodelaciones Premium</h3>
-        <p>Renovamos tus espacios con materiales de alto estándar y una ejecución técnica impecable.</p>
-      </div>
+
+    <div class="hero-badges">
+      <span class="badge">RM · V · VI Región</span>
+      <span class="badge">Alto estándar</span>
+      <span class="badge">Ingeniería y cubicaciones</span>
     </div>
-    <div class="service-card">
-      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Gestión de Proyectos">
-      <div class="service-info">
-        <h3>Gestión de Proyectos</h3>
-        <p>Control riguroso de presupuestos y tiempos para asegurar que tu inversión sea eficiente.</p>
-      </div>
+  </div>
+
+  <div class="hero-visual" aria-label="Imagen de obra">
+    <div class="tag">
+      <strong>Respuesta rápida</strong><br>
+      Cuéntanos comuna + tipo de proyecto y te orientamos con el siguiente paso.
     </div>
   </div>
 </section>
 
-<section id="contacto" class="contact-section">
-  <div class="container">
-    <h2 class="section-title">Inicie su proyecto hoy</h2>
-    <div class="contact-card">
-      <form action="https://formsubmit.co/contacto.sanvicente.cl@gmail.com" method="POST">
-        <!-- Ajustes mínimos recomendados para FormSubmit -->
-        <input type="hidden" name="_subject" value="Nueva solicitud - Constructora San Vicente">
-        <input type="hidden" name="_captcha" value="true">
-        <input type="hidden" name="_template" value="table">
+<!-- TRUST / AUTORIDAD -->
+<section class="trust" aria-label="Confianza">
+  <div class="trust-grid">
+    <div class="stat">
+      <strong>Planificación técnica</strong>
+      <span>Evaluación previa, presupuesto y ruta de ejecución.</span>
+    </div>
+    <div class="stat">
+      <strong>Control de costos</strong>
+      <span>Cubicaciones claras para evitar sorpresas.</span>
+    </div>
+    <div class="stat">
+      <strong>Seguimiento en terreno</strong>
+      <span>Coordinación y control de avance de obra.</span>
+    </div>
+    <div class="stat">
+      <strong>Entrega con estándar</strong>
+      <span>Terminaciones y revisión final ordenada.</span>
+    </div>
+  </div>
+</section>
 
-        <div class="form-grid">
-          <input type="text" name="Nombre" placeholder="Nombre completo" required>
-          <input type="email" name="Email" placeholder="Correo electrónico" required>
+<!-- NOSOTROS -->
+<section id="nosotros" class="section">
+  <h2>Nosotros</h2>
+  <p class="lead">
+    En Constructora San Vicente creemos que una obra bien ejecutada comienza mucho antes de construir.
+    Trabajamos cada proyecto con planificación técnica, control de costos y seguimiento permanente en terreno.
+    Nuestro compromiso es simple: resultados sólidos, procesos claros y cumplimiento real.
+  </p>
+</section>
+
+<!-- SERVICIOS (con imágenes siempre visibles) -->
+<section id="servicios" class="section">
+  <h2>Servicios</h2>
+  <p class="lead">Soluciones orientadas a ejecución, con foco en terminaciones, control y durabilidad.</p>
+
+  <div class="services">
+
+    <div class="service">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1800&q=70" alt="Casa terminada moderna" loading="lazy">
+      </div>
+      <div class="content">
+        <strong>Viviendas llave en mano</strong>
+        <p>Gestión integral desde planificación hasta entrega final: ejecución, coordinación y terminaciones listas para habitar.</p>
+        <a class="mini-cta" href="#contacto">Cotizar vivienda llave en mano →</a>
+      </div>
+    </div>
+
+    <div class="service">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1582582429415-3f1cf0fd3c65?auto=format&fit=crop&w=1800&q=70" alt="Casa con ampliación" loading="lazy">
+      </div>
+      <div class="content">
+        <strong>Ampliaciones</strong>
+        <p>Ampliación integrada a la vivienda existente con criterio técnico, estructural y terminaciones coherentes.</p>
+        <a class="mini-cta" href="#contacto">Cotizar ampliación →</a>
+      </div>
+    </div>
+
+    <div class="service">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1800&q=70" alt="Baño moderno remodelado" loading="lazy">
+      </div>
+      <div class="content">
+        <strong>Remodelaciones de alto estándar</strong>
+        <p>Renovación integral con precisión en terminaciones, coordinación de especialidades y control de obra.</p>
+        <a class="mini-cta" href="#contacto">Cotizar remodelación →</a>
+      </div>
+    </div>
+
+    <div class="service">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1581092919535-7146f5c2a0f1?auto=format&fit=crop&w=1800&q=70" alt="Planos CAD en pantalla" loading="lazy">
+      </div>
+      <div class="content">
+        <strong>Ingeniería y cubicaciones</strong>
+        <p>Cubicaciones detalladas y análisis técnico para presupuestos precisos, decisiones informadas y control de costos.</p>
+        <a class="mini-cta" href="#contacto">Solicitar cubicación →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESO (reduce dudas y sube conversión) -->
+<section id="proceso" class="section">
+  <h2>Nuestro proceso</h2>
+  <p class="lead">Así evitamos improvisaciones y logramos una ejecución ordenada, con control real desde el inicio.</p>
+
+  <div class="process-grid">
+    <div class="card">
+      <div class="step-num">1</div>
+      <h3>Evaluación inicial</h3>
+      <p>Levantamos necesidades, ubicación, alcance y objetivos del proyecto para definir el camino correcto.</p>
+    </div>
+    <div class="card">
+      <div class="step-num">2</div>
+      <h3>Cubicación y presupuesto</h3>
+      <p>Cuantificamos partidas y construimos un presupuesto claro para reducir incertidumbre y sobrecostos.</p>
+    </div>
+    <div class="card">
+      <div class="step-num">3</div>
+      <h3>Planificación y programación</h3>
+      <p>Ordenamos secuencia de trabajo, coordinación y tiempos para una ejecución eficiente y controlada.</p>
+    </div>
+    <div class="card">
+      <div class="step-num">4</div>
+      <h3>Ejecución y entrega</h3>
+      <p>Seguimiento en terreno, control de avance y cierre con revisión final y estándar de terminación.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS (reemplaza luego por fotos reales) -->
+<section id="proyectos" class="section">
+  <h2>Proyectos</h2>
+  <p class="lead">
+    Aquí puedes mostrar tus casos reales. Por ahora dejé imágenes referenciales; cuando me pases tus fotos,
+    te las dejo perfectas (mismo formato, misma estética).
+  </p>
+
+  <div class="projects-grid">
+    <div class="project">
+      <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=70');"></div>
+      <div class="meta">
+        <strong>Vivienda — Llave en mano</strong>
+        <span>Gestión completa + terminaciones. (Reemplazar por tu caso real)</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1560448204-603b3fc33ddc?auto=format&fit=crop&w=1600&q=70');"></div>
+      <div class="meta">
+        <strong>Remodelación — Alto estándar</strong>
+        <span>Coordinación de especialidades + control. (Reemplazar por tu caso real)</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1582582429415-3f1cf0fd3c65?auto=format&fit=crop&w=1600&q=70');"></div>
+      <div class="meta">
+        <strong>Ampliación — Integración</strong>
+        <span>Ampliación coherente con la vivienda existente. (Reemplazar por tu caso real)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO (optimizado para filtrar y convertir) -->
+<section id="contacto" class="section">
+  <h2>Solicitar evaluación</h2>
+  <p class="lead">
+    Completa los datos clave y te respondemos con el siguiente paso. Mientras más claro el alcance, más rápida la orientación.
+  </p>
+
+  <div class="contact-wrap">
+
+    <form action="https://formsubmit.co/contacto@sanvicenteconstructora.cl" method="POST">
+      <input type="hidden" name="_subject" value="Nueva solicitud desde la web - Constructora San Vicente">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+
+      <div class="row-2">
+        <div>
+          <label>Nombre</label>
+          <input type="text" name="Nombre" placeholder="Tu nombre" required>
         </div>
+        <div>
+          <label>Teléfono</label>
+          <input type="tel" name="Teléfono" placeholder="+56 9..." required>
+        </div>
+      </div>
 
-        <select name="Tipo de Proyecto" style="margin-bottom: 20px;">
-          <option value="Construcción Casa Nueva">Construcción Casa Nueva</option>
-          <option value="Remodelación / Ampliación">Remodelación / Ampliación</option>
-          <option value="Asesoría Técnica">Asesoría Técnica</option>
-        </select>
+      <label>Email</label>
+      <input type="email" name="Correo" placeholder="tu@correo.com" required>
 
-        <textarea name="Mensaje" rows="5" placeholder="Cuéntenos sobre su terreno o idea de proyecto..." style="margin-bottom: 25px;" required></textarea>
+      <div class="row-2">
+        <div>
+          <label>Tipo de proyecto</label>
+          <select name="Tipo de proyecto" required>
+            <option value="">Selecciona</option>
+            <option>Vivienda llave en mano</option>
+            <option>Remodelación alto estándar</option>
+            <option>Ampliación</option>
+            <option>Ingeniería / Cubicación</option>
+          </select>
+        </div>
+        <div>
+          <label>Comuna / Ciudad</label>
+          <input type="text" name="Ubicación" placeholder="Ej: San Bernardo" required>
+        </div>
+      </div>
 
-        <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Solicitar Presupuesto</button>
-      </form>
+      <div class="row-2">
+        <div>
+          <label>Metros aproximados</label>
+          <select name="Metros aproximados">
+            <option value="">Opcional</option>
+            <option>Menos de 80 m²</option>
+            <option>80 – 150 m²</option>
+            <option>Más de 150 m²</option>
+          </select>
+        </div>
+        <div>
+          <label>Plazo deseado</label>
+          <select name="Plazo deseado">
+            <option value="">Opcional</option>
+            <option>Iniciar pronto (0–30 días)</option>
+            <option>1–3 meses</option>
+            <option>3–6 meses</option>
+            <option>Solo cotización por ahora</option>
+          </select>
+        </div>
+      </div>
+
+      <label>Mensaje</label>
+      <textarea name="Mensaje" rows="5" placeholder="Cuéntanos brevemente el proyecto (alcance, idea general, si hay planos, etc.)"></textarea>
+
+      <button class="btn btn-primary" type="submit">Enviar solicitud</button>
+
+      <div class="helper">
+        Atención en RM, V y VI Región. Si tienes planos o referencias, indícalo en el mensaje para acelerar la evaluación.
+      </div>
+    </form>
+
+    <div class="contact-card">
+      <h3>Contacto directo</h3>
+      <p>
+        Si prefieres, escríbenos por WhatsApp con tu comuna y tipo de proyecto.
+        Respuesta más rápida para coordinación inicial.
+      </p>
+
+      <span class="pill">WhatsApp: +56 9 7737 7936</span>
+      <span class="pill">Correo: contacto@sanvicenteconstructora.cl</span>
+      <span class="pill">Cobertura: RM · V · VI</span>
+
+      <div style="margin-top:14px;">
+        <a class="btn btn-secondary" href="https://wa.me/56977377936?text=Hola%20Constructora%20San%20Vicente%2C%20quiero%20cotizar%20un%20proyecto.%20Comuna%3A%20____%20%7C%20Tipo%3A%20____%20%7C%20Metros%20aprox%3A%20____" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      </div>
     </div>
+
   </div>
 </section>
 
 <footer>
-  <p>© 2026 CONSTRUCTORA SAN VICENTE · RM, V y VI Región · Chile</p>
+  © 2026 Constructora San Vicente | Región Metropolitana · V Región · VI Región
 </footer>
 
-<a href="https://wa.me/56977377936?text=Hola%2C%20necesito%20cotizar%20un%20proyecto%20de%20construcci%C3%B3n."
-   class="whatsapp-btn"
-   target="_blank"
-   rel="noopener">
-  <span>WhatsApp Consultas</span>
+<a class="whatsapp" href="https://wa.me/56977377936?text=Hola%20Constructora%20San%20Vicente%2C%20quiero%20cotizar%20un%20proyecto.%20Comuna%3A%20____%20%7C%20Tipo%3A%20____%20%7C%20Metros%20aprox%3A%20____" target="_blank" rel="noopener">
+  WhatsApp
 </a>
 
 </body>
